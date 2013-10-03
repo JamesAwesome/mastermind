@@ -3,7 +3,8 @@ require File.join(File.dirname(__FILE__), "/../spec_helper")
 module Mastermind
   # Begin the description of the class we will be testing.
   describe Game do
-    # Tasks which should be perfomed before running each example
+    # Tasks which should be perfomed before running each example.
+    # This is available to all contexts below it.
     before(:each) do
       # Create a mock object so we can check the output from our game
       @messenger = double("messenger").as_null_object
@@ -34,6 +35,8 @@ module Mastermind
       end
     end
 
+    # Lets test what happens when we need a guess marked!
+    # These examples are much like the ones above.
     context "marking a guess" do
 
       context "with all 4 colors correct in the correct places" do
