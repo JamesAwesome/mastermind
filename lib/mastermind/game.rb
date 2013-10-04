@@ -19,7 +19,7 @@ module Mastermind
         if @code[index] == peg
           result[index] = "b"
         elsif @code.include?(peg)
-          result[index] = "w"
+          result[@code.index(peg)] ||= "w"
         end
       end
       @messenger.puts result.compact.sort.join
