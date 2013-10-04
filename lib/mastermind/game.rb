@@ -14,15 +14,15 @@ module Mastermind
 
     # When the codebreaker submits a guess, grade it against the mastermind's code.
     def guess(guess)
-      result = []
+      result = [nil,nil,nil,nil]
       guess.each_with_index do |peg, index|
         if @code[index] == peg
-          result << "b"
+          result[index] = "b"
         elsif @code.include?(peg)
-          result << "w"
+          result[index] = "w"
         end
       end
-      @messenger.puts result.sort.join
+      @messenger.puts result.compact.sort.join
     end
   end
 end
